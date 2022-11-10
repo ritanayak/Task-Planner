@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <div>
+        <button mat-raised-button routerLinkActive="active-link" class="posts-btn"  (click)="notAvailableMessage()" routerLink="/dashboard/posts">Posts</button>
+        <button mat-raised-button  routerLinkActive="active-link" class="todos-btn" routerLink="/dashboard/todos">Todos ({{ uncheckedTodos | async }}) </button>
+    </div>
+    <div style="display: flex;">
+        <div><a style="color: white;" [href]="'https://www:' + user.website">{{user?.name}}</a>({{user?.company?.name}})</div>
+        <button mat-raised-button (click)="logOut()">Log Out</button>
+    </div>
+
+</mat-toolbar>
+<div class="main-area">
+    <mat-card class="mat-elevation-z4">
+        <router-outlet></router-outlet>
+    </mat-card>
+</div>

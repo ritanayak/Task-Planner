@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+  }
+
+  li.done {
+    color: green;
+    margin: 10px;
+  }
+
+  li {
+    color: red;
+    margin: 10px;
+  }
+
+  .todo-item > * {
+    margin-right: 1rem;
+  }

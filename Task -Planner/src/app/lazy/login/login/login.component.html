@@ -1,0 +1,22 @@
+<mat-card class="mat-elevation-z4">
+    <form [formGroup]="form" (ngSubmit)="form.valid && submit()">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>User name</mat-label>
+            <input matInput formControlName="username" type="email">
+
+              <mat-error *ngIf="form.controls['username'].hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+
+
+
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Log In</button>
+    </form>
+</mat-card>
+
+
+
+

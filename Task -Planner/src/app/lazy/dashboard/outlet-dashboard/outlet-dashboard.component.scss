@@ -1,0 +1,22 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+
+    .posts-btn {
+        margin-right: 1rem;
+    }
+}
+
+.main-area {
+    margin: 4rem;
+
+    mat-card {
+
+    }
+}
+
+
+.active-link{
+    background-color: #ff4081;
+    color: white;
+}

@@ -1,0 +1,74 @@
+<div style="padding: 0 20px; position: relative">
+    <div style="display: flex; flex-direction: row-reverse">
+        <mat-button-toggle-group
+        [(ngModel)]="filterType"
+            aria-label="Favorite Color"
+        >
+            <mat-button-toggle value="All">All</mat-button-toggle>
+            <mat-button-toggle value="Completed">Completed</mat-button-toggle>
+            <mat-button-toggle value="Completed-Today">Completed - Today</mat-button-toggle>
+            <mat-button-toggle value="Incomplete">Incomplete</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <mat-divider style="margin-top: 10px"></mat-divider>
+    <ul *ngIf="(todos | async).length > 0 && filterType == 'All'">
+        <li
+            class="todo-item"
+            [class.done]="todo.completed"
+            *ngFor="let todo of todos | async"
+        >
+            <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggleTodo(todo)"
+            />
+            {{ todo.title }}
+        </li>
+    </ul>
+
+    <ul *ngIf="(getCompletedTodos | async).length > 0 && filterType == 'Completed'">
+        <li
+            class="todo-item"
+            [class.done]="todo.completed"
+            *ngFor="let todo of getCompletedTodos | async"
+        >
+            <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggleTodo(todo)"
+            />
+            {{ todo.title }}
+        </li>
+    </ul>
+
+    <ul *ngIf="(getCompletedTodayTodos | async)?.length > 0 && filterType == 'Completed-Today'">
+        <li
+            class="todo-item"
+            [class.done]="todo.completed"
+            *ngFor="let todo of getCompletedTodayTodos | async"
+        >
+            <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggleTodo(todo)"
+            />
+            {{ todo.title }}
+        </li>
+    </ul>
+
+    <ul *ngIf="(getUnCompletedTodos | async).length > 0 && filterType == 'Incomplete'">
+        <li
+            class="todo-item"
+            [class.done]="todo.completed"
+            *ngFor="let todo of getUnCompletedTodos | async"
+        >
+            <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggleTodo(todo)"
+            />
+            {{ todo.title }}
+        </li>
+    </ul>
+</div>
